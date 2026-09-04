@@ -3,7 +3,6 @@ import '../models/food_category.dart';
 import '../theme/app_colors.dart';
 import '../theme/app_dimens.dart';
 import '../theme/app_text_styles.dart';
-import '../widgets/app_bottom_nav_bar.dart';
 import '../widgets/category_list_tile.dart';
 import 'category_detail_screen.dart';
 
@@ -29,9 +28,7 @@ class _ExploreCategoriesScreenState extends State<ExploreCategoriesScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.background,
-      body: SafeArea(
+    return SafeArea(
         child: Column(
           children: [
             Padding(
@@ -87,8 +84,6 @@ class _ExploreCategoriesScreenState extends State<ExploreCategoriesScreen> {
             ),
           ],
         ),
-      ),
-      bottomNavigationBar: const AppBottomNavBar(currentIndex: 2),
     );
   }
 

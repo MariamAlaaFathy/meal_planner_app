@@ -31,22 +31,15 @@ class DishCard extends StatelessWidget {
             fit: StackFit.expand,
             children: [
               // الصورة
-              Image.network(
+              Image.asset(
                 imageUrl,
                 fit: BoxFit.cover,
-                loadingBuilder: (context, child, progress) {
-                  if (progress == null) return child;
-                  return Container(
-                    color: AppColors.searchBackground,
-                    child: const Center(
-                      child: CircularProgressIndicator(strokeWidth: 2),
-                    ),
-                  );
-                },
                 errorBuilder: (context, error, stack) => Container(
                   color: AppColors.searchBackground,
-                  child: const Icon(Icons.broken_image_outlined,
-                      color: AppColors.textSecondary),
+                  child: const Icon(
+                    Icons.broken_image_outlined,
+                    color: AppColors.textSecondary,
+                  ),
                 ),
               ),
               const Positioned.fill(
@@ -55,10 +48,7 @@ class DishCard extends StatelessWidget {
                     gradient: LinearGradient(
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
-                      colors: [
-                        Colors.transparent,
-                        Colors.black45,
-                      ],
+                      colors: [Colors.transparent, Colors.black45],
                       stops: [0.6, 1.0],
                     ),
                   ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meal_planner_app/pages/calendarPage.dart';
 import 'package:meal_planner_app/pages/searchPage.dart';
+import 'package:meal_planner_app/screens/explore_categories_screen.dart';
 
 class BottomBar extends StatefulWidget {
   const BottomBar({super.key});
@@ -17,9 +18,7 @@ class _BottomBarState extends State<BottomBar> {
       child: Text('Home tab', style: const TextStyle(color: Colors.grey)),
     ),
     SearchPage(),
-    Center(
-      child: Text('Explore tab', style: const TextStyle(color: Colors.grey)),
-    ),
+    ExploreCategoriesScreen(),
     Center(
       child: Text('Favorites tab', style: const TextStyle(color: Colors.grey)),
     ),

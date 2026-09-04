@@ -37,10 +37,7 @@ class CategoryDetailScreen extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Text(
-                          category.name,
-                          style: AppTextStyles.screenTitle,
-                        ),
+                        Text(category.name, style: AppTextStyles.screenTitle),
                         const SizedBox(height: 2),
                         const Text(
                           'Category',
@@ -70,10 +67,8 @@ class CategoryDetailScreen extends StatelessWidget {
                   return DishCard(
                     name: dish.name,
                     imageUrl: dish.imageUrl,
-                    onTap: () {
-                    },
-                    onMoreTap: () {
-                    },
+                    onTap: () {},
+                    onMoreTap: () {},
                   );
                 },
               ),
