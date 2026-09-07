@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meal_planner_app/pages/calendarPage.dart';
+import 'package:meal_planner_app/pages/home_page.dart';  // ← إضافة
 import 'package:meal_planner_app/pages/searchPage.dart';
 import 'package:meal_planner_app/screens/explore_categories_screen.dart';
 
@@ -11,16 +12,14 @@ class BottomBar extends StatefulWidget {
 }
 
 class _BottomBarState extends State<BottomBar> {
-  int _currentIndex = 4;
+  int _currentIndex = 0;  
 
   final List<Widget> _tabs = const [
-    Center(
-      child: Text('Home tab', style: const TextStyle(color: Colors.grey)),
-    ),
+    HomePage(),  
     SearchPage(),
     ExploreCategoriesScreen(),
     Center(
-      child: Text('Favorites tab', style: const TextStyle(color: Colors.grey)),
+      child: Text('Favorites tab', style: TextStyle(color: Colors.grey)),
     ),
     CalendarPage(),
   ];

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:meal_planner_app/widgets/BottomBar.dart';
+import 'screens/splash_screen.dart';
 
 void main() {
   runApp(const MealPlannerApp());
@@ -14,7 +14,7 @@ class MealPlannerApp extends StatelessWidget {
       title: 'Meal Planner',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.orange),
-      home: const BottomBar(),
+      home: const SplashScreen(),
     );
   }
 }
