@@ -11,7 +11,7 @@ class BottomBar extends StatefulWidget {
 }
 
 class _BottomBarState extends State<BottomBar> {
-  int _currentIndex = 4;
+  int _currentIndex = 1;
 
   final List<Widget> _tabs = const [
     Center(
