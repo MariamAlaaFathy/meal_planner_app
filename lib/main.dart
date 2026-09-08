@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:meal_planner_app/widgets/BottomBar.dart';
+import 'package:provider/provider.dart';
+import 'providers/favorites_provider.dart';
 
 void main() {
-  runApp(const MealPlannerApp());
+  runApp(
+    ChangeNotifierProvider(
+      create:(_)=>FavoritesProvider(),
+      child: const MealPlannerApp(),
+    ),
+  );
 }
 
 class MealPlannerApp extends StatelessWidget {

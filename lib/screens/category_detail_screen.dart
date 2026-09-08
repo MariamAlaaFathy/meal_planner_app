@@ -68,7 +68,7 @@ class CategoryDetailScreen extends StatelessWidget {
                     name: dish.name,
                     imageUrl: dish.imageUrl,
                     onTap: () {},
-                    onMoreTap: () {},
+                    onMoreTap: (globalPsition) {},
                   );
                 },
               ),
