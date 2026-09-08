@@ -7,7 +7,9 @@ class DishCard extends StatelessWidget {
   final String name;
   final String imageUrl;
   final VoidCallback? onTap;
-  final VoidCallback? onMoreTap;
+
+  // Receives the global position where More was pressed
+  final ValueChanged<Offset>? onMoreTap;
 
   const DishCard({
     super.key,
@@ -30,7 +32,7 @@ class DishCard extends StatelessWidget {
           child: Stack(
             fit: StackFit.expand,
             children: [
-              // الصورة
+              // Dish image
               Image.asset(
                 imageUrl,
                 fit: BoxFit.cover,
@@ -42,18 +44,25 @@ class DishCard extends StatelessWidget {
                   ),
                 ),
               ),
+
+              // Bottom gradient overlay
               const Positioned.fill(
                 child: DecoratedBox(
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
-                      colors: [Colors.transparent, Colors.black45],
+                      colors: [
+                        Colors.transparent,
+                        Colors.black45,
+                      ],
                       stops: [0.6, 1.0],
                     ),
                   ),
                 ),
               ),
+
+              // Dish name + More button
               Positioned(
                 left: 16,
                 right: 16,
@@ -69,7 +78,10 @@ class DishCard extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(width: 8),
-                    _MoreBadge(onTap: onMoreTap),
+
+                    _MoreBadge(
+                      onTap: onMoreTap,
+                    ),
                   ],
                 ),
               ),
@@ -82,21 +94,32 @@ class DishCard extends StatelessWidget {
 }
 
 class _MoreBadge extends StatelessWidget {
-  final VoidCallback? onTap;
-  const _MoreBadge({this.onTap});
+  final ValueChanged<Offset>? onTap;
+
+  const _MoreBadge({
+    this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: onTap,
+      onTapDown: (details) {
+        onTap?.call(details.globalPosition);
+      },
       borderRadius: BorderRadius.circular(20),
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+        padding: const EdgeInsets.symmetric(
+          horizontal: 12,
+          vertical: 6,
+        ),
         decoration: BoxDecoration(
           color: AppColors.imageOverlay,
           borderRadius: BorderRadius.circular(20),
         ),
-        child: Text('More', style: AppTextStyles.moreButton),
+        child: Text(
+          'More',
+          style: AppTextStyles.moreButton,
+        ),
       ),
     );
   }
